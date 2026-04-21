@@ -42,12 +42,12 @@ def analyze_field_logic(field_name, search_results):
             patterns['usage'].append(result)
     
     # 保存逻辑分析结果
-    os.makedirs('../reports', exist_ok=True)
-    with open(f'../reports/{field_name}_logic_analysis.json', 'w', encoding='utf-8') as f:
+    os.makedirs('./reports', exist_ok=True)
+    with open(f'./reports/{field_name}_logic_analysis.json', 'w', encoding='utf-8') as f:
         json.dump(patterns, f, ensure_ascii=False, indent=2)
     
     # 生成逻辑分析报告
-    with open(f'../reports/{field_name}_logic_analysis.md', 'w', encoding='utf-8') as f:
+    with open(f'./reports/{field_name}_logic_analysis.md', 'w', encoding='utf-8') as f:
         f.write(f'# {field_name} 字段使用模式分析报告\n\n')
         f.write('## 注意事项\n\n')
         f.write('本分析基于规则对使用场景进行分类，可能不完全准确。\n')
@@ -69,4 +69,4 @@ def analyze_field_logic(field_name, search_results):
         for file in files_used:
             f.write(f'- {file}\n')
     
-    print(f"字段逻辑分析完成，报告已保存到 ../reports/{field_name}_logic_analysis.md")
+    print(f"字段逻辑分析完成，报告已保存到 ./reports/{field_name}_logic_analysis.md")

@@ -1,0 +1,68 @@
+[
+  {
+    "file": "src/main.js",
+    "line": 5,
+    "content": "sourceFrom: Config.getSource(),",
+    "context": [
+      "const App = {",
+      "  sourceFrom: Config.getSource(),",
+      "  ",
+      "  init() {"
+    ]
+  },
+  {
+    "file": "src/main.js",
+    "line": 8,
+    "content": "console.log('App initialized with sourceFrom:', this.sourceFrom);",
+    "context": [
+      "  init() {",
+      "    console.log('App initialized with sourceFrom:', this.sourceFrom);",
+      "    this.loadData();",
+      "  },"
+    ]
+  },
+  {
+    "file": "src/main.js",
+    "line": 13,
+    "content": "if (this.sourceFrom === 'local') {",
+    "context": [
+      "  loadData() {",
+      "    if (this.sourceFrom === 'local') {",
+      "      this.loadLocalData();",
+      "    } else if (this.sourceFrom === 'api') {"
+    ]
+  },
+  {
+    "file": "src/main.js",
+    "line": 15,
+    "content": "} else if (this.sourceFrom === 'api') {",
+    "context": [
+      "      this.loadLocalData();",
+      "    } else if (this.sourceFrom === 'api') {",
+      "      this.loadApiData();",
+      "    }"
+    ]
+  },
+  {
+    "file": "src/main.js",
+    "line": 29,
+    "content": "this.sourceFrom = source;",
+    "context": [
+      "  updateSource(source) {",
+      "    this.sourceFrom = source;",
+      "    Config.setSource(source);",
+      "    console.log('Updated sourceFrom to:', this.sourceFrom);"
+    ]
+  },
+  {
+    "file": "src/main.js",
+    "line": 31,
+    "content": "console.log('Updated sourceFrom to:', this.sourceFrom);",
+    "context": [
+      "    Config.setSource(source);",
+      "    console.log('Updated sourceFrom to:', this.sourceFrom);",
+      "  }",
+      "};"
+    ]
+  }
+]

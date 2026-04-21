@@ -33,12 +33,12 @@ def analyze_project_structure():
                 structure['files'].append(file_path)
     
     # 保存结构分析结果
-    os.makedirs('../reports', exist_ok=True)
-    with open('../reports/structure_report.json', 'w', encoding='utf-8') as f:
+    os.makedirs('./reports', exist_ok=True)
+    with open('./reports/structure_report.json', 'w', encoding='utf-8') as f:
         json.dump(structure, f, ensure_ascii=False, indent=2)
     
     # 生成结构报告
-    with open('../reports/structure_report.md', 'w', encoding='utf-8') as f:
+    with open('./reports/structure_report.md', 'w', encoding='utf-8') as f:
         f.write('# 项目结构分析报告\n\n')
         f.write(f'## 项目根目录\n{project_root}\n\n')
         f.write('## 文件列表\n')
@@ -48,7 +48,7 @@ def analyze_project_structure():
         for directory in structure['directories']:
             f.write(f'- {directory}\n')
     
-    print(f"项目结构分析完成，报告已保存到 ../reports/structure_report.md")
+    print(f"项目结构分析完成，报告已保存到 ./reports/structure_report.md")
 
 
 def analyze_dependencies():
@@ -88,12 +88,12 @@ def analyze_dependencies():
                     dependencies[rel_path] = imports
     
     # 保存依赖分析结果
-    os.makedirs('../reports', exist_ok=True)
-    with open('../reports/dependencies.json', 'w', encoding='utf-8') as f:
+    os.makedirs('./reports', exist_ok=True)
+    with open('./reports/dependencies.json', 'w', encoding='utf-8') as f:
         json.dump(dependencies, f, ensure_ascii=False, indent=2)
     
     # 生成依赖报告
-    with open('../reports/dependencies_report.md', 'w', encoding='utf-8') as f:
+    with open('./reports/dependencies_report.md', 'w', encoding='utf-8') as f:
         f.write('# 代码依赖分析报告\n\n')
         
         # 生成依赖关系图
@@ -134,4 +134,4 @@ def analyze_dependencies():
                 f.write(f'- {imp}\n')
             f.write('\n')
     
-    print(f"代码依赖分析完成，报告已保存到 ../reports/dependencies_report.md")
+    print(f"代码依赖分析完成，报告已保存到 ./reports/dependencies_report.md")

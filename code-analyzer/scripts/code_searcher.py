@@ -47,12 +47,12 @@ def search_field(field_name):
                     print(f"搜索文件 {rel_path} 时出错: {e}")
     
     # 保存搜索结果
-    os.makedirs('../reports', exist_ok=True)
-    with open(f'../reports/{field_name}_search_results.json', 'w', encoding='utf-8') as f:
+    os.makedirs('./reports', exist_ok=True)
+    with open(f'./reports/{field_name}_search_results.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     
     # 生成搜索报告
-    with open(f'../reports/{field_name}_search_report.md', 'w', encoding='utf-8') as f:
+    with open(f'./reports/{field_name}_search_report.md', 'w', encoding='utf-8') as f:
         f.write(f'# {field_name} 字段搜索报告\n\n')
         f.write(f'## 搜索结果统计\n')
         f.write(f'共找到 {len(results)} 处使用\n\n')
@@ -66,5 +66,5 @@ def search_field(field_name):
                     f.write(f'- {ctx_line}\n')
                 f.write('\n')
     
-    print(f"字段搜索完成，报告已保存到 ../reports/{field_name}_search_report.md")
+    print(f"字段搜索完成，报告已保存到 ./reports/{field_name}_search_report.md")
     return results

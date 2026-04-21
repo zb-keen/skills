@@ -9,7 +9,7 @@ import json
 
 def generate_report():
     """生成综合分析报告"""
-    reports_dir = '../reports'
+    reports_dir = './reports'
     
     # 检查报告目录
     if not os.path.exists(reports_dir):
@@ -83,4 +83,4 @@ def generate_report():
         f.write('本报告基于扫描到的代码生成，不是绝对结论。\n')
         f.write('建议结合实际代码进行验证和分析。\n')
     
-    print(f"综合分析报告已生成，保存到 ../reports/comprehensive_report.md")
+    print(f"综合分析报告已生成，保存到 ./reports/comprehensive_report.md")
