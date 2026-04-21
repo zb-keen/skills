@@ -1,0 +1,5 @@
+{
+  "src/main.js": [
+    "const Config = require('./config');"
+  ]
+}
