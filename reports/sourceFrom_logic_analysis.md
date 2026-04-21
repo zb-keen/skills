@@ -1,23 +1,18 @@
-# sourceFrom 字段逻辑分析报告
+# sourceFrom 字段使用模式分析报告
 
-## assignment (3 处)
+## 注意事项
 
-### src/main.js:13
-```
-if (this.sourceFrom === 'local') {
-```
+本分析基于规则对使用场景进行分类，可能不完全准确。
+建议结合实际代码进行验证。
 
-### src/main.js:15
-```
-} else if (this.sourceFrom === 'api') {
-```
+## 可能的assignment场景 (1 处)
 
 ### src/main.js:29
 ```
 this.sourceFrom = source;
 ```
 
-## usage (3 处)
+## 可能的usage场景 (3 处)
 
 ### src/main.js:5
 ```
@@ -34,8 +29,20 @@ console.log('App initialized with sourceFrom:', this.sourceFrom);
 console.log('Updated sourceFrom to:', this.sourceFrom);
 ```
 
-## 影响范围分析
+## 可能的condition场景 (2 处)
 
-字段在 1 个文件中使用
+### src/main.js:13
+```
+if (this.sourceFrom === 'local') {
+```
+
+### src/main.js:15
+```
+} else if (this.sourceFrom === 'api') {
+```
+
+## 使用文件统计
+
+字段在 1 个文件中被找到
 
 - src/main.js

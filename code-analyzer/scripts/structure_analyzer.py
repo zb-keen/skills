@@ -79,7 +79,7 @@ def analyze_dependencies():
                             if line.startswith('import ') or line.startswith('from '):
                                 imports.append(line)
                             # JavaScript/TypeScript 导入
-                            elif line.startswith('import ') or line.startswith('require('):
+                            elif line.startswith('import ') or 'require(' in line:
                                 imports.append(line)
                 except Exception as e:
                     print(f"分析文件 {rel_path} 时出错: {e}")
@@ -95,8 +95,41 @@ def analyze_dependencies():
     # 生成依赖报告
     with open('../reports/dependencies_report.md', 'w', encoding='utf-8') as f:
         f.write('# 代码依赖分析报告\n\n')
+        
+        # 生成依赖关系图
+        f.write('## 依赖关系图\n\n')
+        f.write('```mermaid\ngraph TD\n')
+        
+        # 构建依赖关系
         for file_path, imports in dependencies.items():
-            f.write(f'## {file_path}\n')
+            for imp in imports:
+                # 简单解析导入语句，提取依赖文件
+                imp_path = imp.strip()
+                if imp_path.startswith('const '):
+                    # 处理 CommonJS 导入
+                    if 'require(' in imp_path:
+                        start = imp_path.find('require(') + 8
+                        end = imp_path.find(')', start)
+                        if start > 8 and end > start:
+                            imp_path = imp_path[start:end].strip('"\'')
+                elif imp_path.startswith('import '):
+                    # 处理 ES6 导入
+                    if 'from ' in imp_path:
+                        imp_path = imp_path.split('from ')[-1].strip()
+                
+                # 简化路径表示
+                if imp_path:
+                    file_node = file_path.replace('/', '_').replace('.', '_')
+                    imp_node = imp_path.replace('/', '_').replace('.', '_').replace('\'', '')
+                    
+                    f.write(f'    {file_node}[{file_path}] --> {imp_node}[{imp_path}]\n')
+        
+        f.write('```\n\n')
+        
+        # 详细依赖列表
+        f.write('## 详细依赖列表\n\n')
+        for file_path, imports in dependencies.items():
+            f.write(f'### {file_path}\n')
             for imp in imports:
                 f.write(f'- {imp}\n')
             f.write('\n')

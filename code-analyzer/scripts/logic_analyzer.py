@@ -22,9 +22,15 @@ def analyze_field_logic(field_name, search_results):
         
         # 分析使用模式
         if '=' in line and field_name in line:
-            # 可能是赋值
-            if field_name + '=' in line or field_name + ' =' in line:
-                patterns['assignment'].append(result)
+            # 检查是否是条件判断中的等于比较
+            if '==' in line or '===' in line:
+                patterns['condition'].append(result)
+            else:
+                # 可能是赋值
+                if field_name + '=' in line or field_name + ' =' in line:
+                    patterns['assignment'].append(result)
+                else:
+                    patterns['usage'].append(result)
         elif 'if' in line or 'else' in line or 'switch' in line:
             # 可能是条件判断
             patterns['condition'].append(result)
@@ -42,21 +48,24 @@ def analyze_field_logic(field_name, search_results):
     
     # 生成逻辑分析报告
     with open(f'../reports/{field_name}_logic_analysis.md', 'w', encoding='utf-8') as f:
-        f.write(f'# {field_name} 字段逻辑分析报告\n\n')
+        f.write(f'# {field_name} 字段使用模式分析报告\n\n')
+        f.write('## 注意事项\n\n')
+        f.write('本分析基于规则对使用场景进行分类，可能不完全准确。\n')
+        f.write('建议结合实际代码进行验证。\n\n')
         
         for pattern_type, items in patterns.items():
             if items:
-                f.write(f'## {pattern_type} ({len(items)} 处)\n\n')
+                f.write(f'## 可能的{pattern_type}场景 ({len(items)} 处)\n\n')
                 for item in items:
                     f.write(f'### {item["file"]}:{item["line"]}\n')
                     f.write(f'```\n{item["content"]}\n```\n\n')
         
-        # 分析字段的影响范围
-        f.write('## 影响范围分析\n\n')
+        # 使用文件统计
+        f.write('## 使用文件统计\n\n')
         files_used = set()
         for result in search_results:
             files_used.add(result['file'])
-        f.write(f'字段在 {len(files_used)} 个文件中使用\n\n')
+        f.write(f'字段在 {len(files_used)} 个文件中被找到\n\n')
         for file in files_used:
             f.write(f'- {file}\n')
     

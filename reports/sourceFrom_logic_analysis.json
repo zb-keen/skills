@@ -3,28 +3,6 @@
   "assignment": [
     {
       "file": "src/main.js",
-      "line": 13,
-      "content": "if (this.sourceFrom === 'local') {",
-      "context": [
-        "  loadData() {",
-        "    if (this.sourceFrom === 'local') {",
-        "      this.loadLocalData();",
-        "    } else if (this.sourceFrom === 'api') {"
-      ]
-    },
-    {
-      "file": "src/main.js",
-      "line": 15,
-      "content": "} else if (this.sourceFrom === 'api') {",
-      "context": [
-        "      this.loadLocalData();",
-        "    } else if (this.sourceFrom === 'api') {",
-        "      this.loadApiData();",
-        "    }"
-      ]
-    },
-    {
-      "file": "src/main.js",
       "line": 29,
       "content": "this.sourceFrom = source;",
       "context": [
@@ -70,5 +48,28 @@
       ]
     }
   ],
-  "condition": []
+  "condition": [
+    {
+      "file": "src/main.js",
+      "line": 13,
+      "content": "if (this.sourceFrom === 'local') {",
+      "context": [
+        "  loadData() {",
+        "    if (this.sourceFrom === 'local') {",
+        "      this.loadLocalData();",
+        "    } else if (this.sourceFrom === 'api') {"
+      ]
+    },
+    {
+      "file": "src/main.js",
+      "line": 15,
+      "content": "} else if (this.sourceFrom === 'api') {",
+      "context": [
+        "      this.loadLocalData();",
+        "    } else if (this.sourceFrom === 'api') {",
+        "      this.loadApiData();",
+        "    }"
+      ]
+    }
+  ]
 }

@@ -78,21 +78,9 @@ def generate_report():
                         f.write(f'- {pattern_type}: {len(items)} 处\n')
                 f.write('\n')
         
-        # 总结和建议
-        f.write('## 总结和建议\n\n')
-        f.write('### 代码结构建议\n')
-        f.write('- 保持代码结构清晰，避免过多的嵌套依赖\n')
-        f.write('- 合理组织文件和目录，提高代码可读性\n')
-        f.write('- 定期进行代码分析，及时发现潜在问题\n\n')
-        
-        f.write('### 字段使用建议\n')
-        f.write('- 为字段添加清晰的注释，说明其用途\n')
-        f.write('- 避免在多个文件中频繁修改同一字段\n')
-        f.write('- 考虑使用常量或枚举替代硬编码值\n\n')
-        
-        f.write('### 性能优化建议\n')
-        f.write('- 避免不必要的字段赋值和访问\n')
-        f.write('- 优化条件判断逻辑，减少复杂度\n')
-        f.write('- 考虑使用缓存减少重复计算\n')
+        # 注意事项
+        f.write('## 注意事项\n\n')
+        f.write('本报告基于扫描到的代码生成，不是绝对结论。\n')
+        f.write('建议结合实际代码进行验证和分析。\n')
     
     print(f"综合分析报告已生成，保存到 ../reports/comprehensive_report.md")
