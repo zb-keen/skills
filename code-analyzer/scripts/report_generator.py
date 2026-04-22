@@ -93,9 +93,9 @@ def generate_report():
                         f.write(f'**{field_name} 字段在项目中的使用情况：**\n\n')
                         
                         # 分析字段使用模式
-                        assignment_count = len(analysis.get('赋值', []))
-                        usage_count = len(analysis.get('使用', []))
-                        condition_count = len(analysis.get('条件', []))
+                        assignment_count = len(analysis.get('assignment', []))
+                        usage_count = len(analysis.get('usage', []))
+                        condition_count = len(analysis.get('condition', []))
                         
                         f.write(f'- **赋值场景**：{assignment_count} 处，表明该字段在多个地方被设置值\n')
                         f.write(f'- **使用场景**：{usage_count} 处，表明该字段被广泛引用\n')

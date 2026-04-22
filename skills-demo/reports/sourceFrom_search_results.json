@@ -1,0 +1,189 @@
+[
+  {
+    "file": "src/services/configManager.js",
+    "line": 3,
+    "content": "this.sourceFrom = 'default';",
+    "context": [
+      "  constructor() {",
+      "    this.sourceFrom = 'default';",
+      "  }",
+      ""
+    ]
+  },
+  {
+    "file": "src/services/configManager.js",
+    "line": 8,
+    "content": "this.sourceFrom = source;",
+    "context": [
+      "  setSource(source) {",
+      "    this.sourceFrom = source;",
+      "    console.log(`数据源已设置为: ${this.sourceFrom}`);",
+      "  }"
+    ]
+  },
+  {
+    "file": "src/services/configManager.js",
+    "line": 9,
+    "content": "console.log(`数据源已设置为: ${this.sourceFrom}`);",
+    "context": [
+      "    this.sourceFrom = source;",
+      "    console.log(`数据源已设置为: ${this.sourceFrom}`);",
+      "  }",
+      ""
+    ]
+  },
+  {
+    "file": "src/services/configManager.js",
+    "line": 14,
+    "content": "return this.sourceFrom;",
+    "context": [
+      "  getSource() {",
+      "    return this.sourceFrom;",
+      "  }",
+      ""
+    ]
+  },
+  {
+    "file": "src/services/businessLogic.js",
+    "line": 8,
+    "content": "// 检查数据是否包含sourceFrom字段",
+    "context": [
+      "    ",
+      "    // 检查数据是否包含sourceFrom字段",
+      "    if (data.sourceFrom) {",
+      "      console.log(`数据来源: ${data.sourceFrom}`);"
+    ]
+  },
+  {
+    "file": "src/services/businessLogic.js",
+    "line": 9,
+    "content": "if (data.sourceFrom) {",
+    "context": [
+      "    // 检查数据是否包含sourceFrom字段",
+      "    if (data.sourceFrom) {",
+      "      console.log(`数据来源: ${data.sourceFrom}`);",
+      "      return this.enhanceData(data);"
+    ]
+  },
+  {
+    "file": "src/services/businessLogic.js",
+    "line": 10,
+    "content": "console.log(`数据来源: ${data.sourceFrom}`);",
+    "context": [
+      "    if (data.sourceFrom) {",
+      "      console.log(`数据来源: ${data.sourceFrom}`);",
+      "      return this.enhanceData(data);",
+      "    } else {"
+    ]
+  },
+  {
+    "file": "src/services/businessLogic.js",
+    "line": 13,
+    "content": "console.log('数据缺少sourceFrom字段');",
+    "context": [
+      "    } else {",
+      "      console.log('数据缺少sourceFrom字段');",
+      "      return { ...data, error: '数据缺少来源信息' };",
+      "    }"
+    ]
+  },
+  {
+    "file": "src/services/businessLogic.js",
+    "line": 21,
+    "content": "switch (data.sourceFrom) {",
+    "context": [
+      "    // 根据不同的数据源进行不同的处理",
+      "    switch (data.sourceFrom) {",
+      "      case 'database':",
+      "        return this.enhanceDatabaseData(data);"
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 5,
+    "content": "this.sourceFrom = null;",
+    "context": [
+      "  constructor() {",
+      "    this.sourceFrom = null;",
+      "  }",
+      ""
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 11,
+    "content": "this.sourceFrom = configManager.getSource();",
+    "context": [
+      "    // 从配置管理器获取数据源",
+      "    this.sourceFrom = configManager.getSource();",
+      "    ",
+      "    console.log(`从 ${this.sourceFrom} 获取数据`);"
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 13,
+    "content": "console.log(`从 ${this.sourceFrom} 获取数据`);",
+    "context": [
+      "    ",
+      "    console.log(`从 ${this.sourceFrom} 获取数据`);",
+      "    ",
+      "    // 根据不同的数据源返回不同的数据"
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 16,
+    "content": "switch (this.sourceFrom) {",
+    "context": [
+      "    // 根据不同的数据源返回不同的数据",
+      "    switch (this.sourceFrom) {",
+      "      case 'database':",
+      "        return this.fetchFromDatabase();"
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 33,
+    "content": "sourceFrom: this.sourceFrom",
+    "context": [
+      "      name: '数据库数据',",
+      "      sourceFrom: this.sourceFrom",
+      "    };",
+      "  }"
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 42,
+    "content": "sourceFrom: this.sourceFrom",
+    "context": [
+      "      name: 'API数据',",
+      "      sourceFrom: this.sourceFrom",
+      "    };",
+      "  }"
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 51,
+    "content": "sourceFrom: this.sourceFrom",
+    "context": [
+      "      name: '文件数据',",
+      "      sourceFrom: this.sourceFrom",
+      "    };",
+      "  }"
+    ]
+  },
+  {
+    "file": "src/services/dataService.js",
+    "line": 57,
+    "content": "return this.sourceFrom;",
+    "context": [
+      "  getSourceFrom() {",
+      "    return this.sourceFrom;",
+      "  }",
+      "}"
+    ]
+  }
+]
