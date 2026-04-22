@@ -1,0 +1,14 @@
+{
+  "skill_path": "../code-analyzer",
+  "code_quality": {
+    "has_error_handling": 0.0,
+    "code_readability": 75,
+    "performance_considerations": 85
+  },
+  "documentation_quality": {
+    "documentation_completeness": 100,
+    "documentation_clarity": 100.0,
+    "documentation_structure": 100
+  },
+  "overall_score": 72.0
+}

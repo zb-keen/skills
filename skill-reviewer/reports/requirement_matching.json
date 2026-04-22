@@ -1,0 +1,13 @@
+{
+  "requirements": "分析项目代码，回答关于特定字段的问题",
+  "skill_content_analyzed": true,
+  "matched_features": [
+    "代码分析",
+    "字段分析",
+    "依赖分析",
+    "报告生成",
+    "错误处理"
+  ],
+  "missing_features": [],
+  "match_score": 100.0
+}

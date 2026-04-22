@@ -1,0 +1,14 @@
+{
+  "skill_path": "../code-analyzer",
+  "has_skill_md": true,
+  "has_scripts_dir": true,
+  "script_files": [
+    "main.py",
+    "code_searcher.py",
+    "logic_analyzer.py",
+    "report_generator.py",
+    "structure_analyzer.py"
+  ],
+  "has_reports_dir": false,
+  "structure_issues": []
+}
