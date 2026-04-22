@@ -88,6 +88,27 @@ def generate_report():
                         total_usage = sum(len(items) for items in analysis.values())
                         f.write(f'总使用次数: {total_usage}\n\n')
                         
+                        # 生成围绕用户问题的总结
+                        f.write('#### 字段使用总结\n\n')
+                        f.write(f'**{field_name} 字段在项目中的使用情况：**\n\n')
+                        
+                        # 分析字段使用模式
+                        assignment_count = len(analysis.get('赋值', []))
+                        usage_count = len(analysis.get('使用', []))
+                        condition_count = len(analysis.get('条件', []))
+                        
+                        f.write(f'- **赋值场景**：{assignment_count} 处，表明该字段在多个地方被设置值\n')
+                        f.write(f'- **使用场景**：{usage_count} 处，表明该字段被广泛引用\n')
+                        f.write(f'- **条件场景**：{condition_count} 处，表明该字段被用于逻辑判断\n\n')
+                        
+                        # 分析字段的重要性
+                        if total_usage > 10:
+                            f.write('**重要性**：高 - 该字段在项目中被频繁使用，可能是核心业务逻辑的一部分\n\n')
+                        elif total_usage > 5:
+                            f.write('**重要性**：中 - 该字段在项目中有一定的使用频率\n\n')
+                        else:
+                            f.write('**重要性**：低 - 该字段在项目中使用较少\n\n')
+                        
                         for pattern_type, items in analysis.items():
                             if items:
                                 f.write(f'- {pattern_type}: {len(items)} 处\n')

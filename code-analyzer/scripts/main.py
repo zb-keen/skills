@@ -32,6 +32,10 @@ def analyze_field(field_name):
         # 导入逻辑分析模块
         from logic_analyzer import analyze_field_logic
         analyze_field_logic(field_name, results)
+        
+        # 导入结构分析模块，生成字段依赖图
+        from structure_analyzer import analyze_field_dependencies
+        analyze_field_dependencies(field_name)
     except Exception as e:
         print(f"分析字段时出错: {e}")
         print(traceback.format_exc())
